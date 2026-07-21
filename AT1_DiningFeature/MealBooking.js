@@ -66,3 +66,5 @@ class MealBooking {
     `;
   }
 }
+
+module.exports = MealBooking;
