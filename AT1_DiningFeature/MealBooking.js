@@ -52,3 +52,17 @@ class MealBooking {
     else if (this.#mealType === "Dinner") price = 20;
     return price * this.#quantity;
   }
+
+// Method to return booking summary
+  getSummary() {
+    return `
+    Booking Summary:
+    Student: ${this.#studentName} (ID: ${this.#studentId})
+    Meal: ${this.#mealType} on ${this.#mealDate}
+    Quantity: ${this.#quantity}
+    Dietary Note: ${this.#dietaryNote}
+    Status: ${this.#bookingStatus}
+    Total Cost: K${this.calculateTotal()}
+    `;
+  }
+}
