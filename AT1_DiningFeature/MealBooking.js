@@ -36,13 +36,16 @@ class MealBooking {
   get dietaryNote() { return this.#dietaryNote; }
   get bookingStatus() { return this.#bookingStatus; }
 
-  // Setters
-  set studentName(name) { this.#studentName = name; }
-  set mealDate(date) { this.#mealDate = date; }
-  set mealType(type) { this.#mealType = type; }
-  set quantity(qty) { this.#quantity = qty; }
-  set dietaryNote(note) { this.#dietaryNote = note; }
-  set bookingStatus(status) { this.#bookingStatus = status; }
+
+// Validation
+validate() {
+  if (!this.#studentId) throw new Error (" Missing Student ID!, please Enter your ID Number");
+  if (!this.#studentName) throw new Error ("Missing student name!, please your name");
+  if (!this.#mealDate) throw new error ("Missing Date!, Please enter todays Date");
+  if (!["Breakfast","Lunch","Dinner"].includes(this.#mealType)) throw new Error ("Invalid meal Type!, Enter Brekfast, Lunch, or Dinner");
+  if (this.#quantity<1) throw new Error ("Invalid Quantity!,Quantity must be at least 1 and above");
+}
+
 
 // Method to calculate total cost
   calculateTotal() {
@@ -50,20 +53,30 @@ class MealBooking {
     if (this.#mealType === "Breakfast") price = 10;
     else if (this.#mealType === "Lunch") price = 15;
     else if (this.#mealType === "Dinner") price = 20;
-    return price * this.#quantity;
+return price * this.#quantity;
   }
 
-// Method to return booking summary
-  getSummary() {
-    return `
-    Booking Summary:
-    Student: ${this.#studentName} (ID: ${this.#studentId})
-    Meal: ${this.#mealType} on ${this.#mealDate}
-    Quantity: ${this.#quantity}
-    Dietary Note: ${this.#dietaryNote}
-    Status: ${this.#bookingStatus}
-    Total Cost: K${this.calculateTotal()}
-    `;
+//Booking status methods
+confirmBooking() {this.#bookingStatus = "Confirmed";}
+cancelBooking() {this.#bookingStatus = "Cancelled"}
+
+// Receipt
+getSummary(){
+ return`
+
+===================================================================
+			DWU DINING MEAL BOOKING
+===================================================================
+
+Student: ${this.#studentName}(${this.#studentId})
+Meal: ${this.#mealType} x ${this.#quantity}
+Date: ${this.#mealDate}
+Dietary note: ${this.#dietaryNote}
+Status: ${this.#bookingStatus}
+Total cost: K${this.calculateTotal().toFixed(2)}
+
+===================================================================
+`;
   }
 }
 
