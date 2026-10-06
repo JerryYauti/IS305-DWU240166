@@ -7,7 +7,9 @@
   objects, constructors, private fields and methods.
 */
 
+
 const readline = require("readline");
+const Student = require("./Student");
 const MealBooking = require("./MealBooking");
 
 const bookings = [];
@@ -27,27 +29,35 @@ async function ask(question) {
   return new Promise((resolve) => rl.question(question, resolve));
 }
 
+
 async function main() {
   try {
+    // Student details
     const studentId = await ask("Enter Student ID: ");
-    const studentName = await ask("Enter Student Name: ");
-    const mealDate = await ask("Enter Meal Date (DD-MM-YYYY): ");
+    const firstName = await ask("Enter First Name: ");
+    const lastName = await ask("Enter Last Name: ");
+
+    const student = new Student(studentId, firstName, lastName);
+    console.log(student.displayInfo());
+
+    // Booking details
+    const mealDate = await ask("Enter Meal Date (YYYY-MM-DD): ");
     const mealType = await ask("Enter Meal Type (Breakfast/Lunch/Dinner): ");
     const quantity = parseInt(await ask("Enter Quantity: "), 10);
     const dietaryNote = await ask("Enter Dietary Note: ");
 
     if (isDuplicate(studentId, mealDate, mealType)) {
-      console.log(" Duplicate booking detected. Booking rejected.");
+      console.log("❌ Duplicate booking detected. Booking rejected.");
       rl.close();
       return;
     }
 
-    const booking = new MealBooking(studentId, studentName, mealDate, mealType, quantity, dietaryNote);
-
+    const booking = new MealBooking(studentId, student.getFullName(), mealDate, mealType, quantity, dietaryNote);
     booking.validate();
+
     bookings.push(booking);
 
-    console.log("\n Booking created successfully!");
+    console.log("\n✅ Booking created successfully!");
     console.log(booking.getSummary());
 
   } catch (err) {
@@ -58,3 +68,4 @@ async function main() {
 }
 
 main();
+
