@@ -5,7 +5,11 @@
   "main": "src/CampusServiceApp.js",
   "scripts": {
     "start": "node src/CampusServiceApp.js",
-    "test": "node --test tests/*.test.js"
+    "test": "node --test tests/*.test.js",
+    "build-zip": "node scripts/create_moodle_zip.js"
+  },
+  "dependencies": {
+    "archiver": "^5.3.1"
   },
   "license": "UNLICENSED",
   "engines": {
