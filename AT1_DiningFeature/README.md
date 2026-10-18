@@ -1,22 +1,27 @@
-# AT1 Dining Feature- This folder contains the two files, MealBooking.js and DiningApp.js
+# AT1 Dining Meal Booking Feature
 
-## Student Information
-- **Name:** Jerry YAUTI
-- **Student ID:** 240166
+Student Name: Jerry Yauti
 
-## GitHub Repository
-- **Repository URL:** https://github.com/JerryYauti/IS305-DWU240166
+Student ID: 240166
 
-## Program Description
-This project implements a dining feature for the IS305 unit. It allows meal bookings, calculates costs, validates bookings, and prevents duplicate entries.
+Repository: https://github.com/JerryYauti/IS305-DWU240166
 
-## Submitted Files
-- **MealBooking.js** – Defines the `MealBooking` class, including properties, getters/setters, cost calculation, and validation logic.
-- **DiningApp.js** – Main application file that runs the dining feature, handles user interaction, and tests booking functionality.
-- **README.md** – Documentation file containing student details, repository link, program description, file purposes, run instructions, and test summary.
+Description:
+A Node.js console application that allows DWU students to create dining meal bookings. The program demonstrates classes, private fields, getters/setters, validation, and simple array-based storage without using a database.
 
-## Run Instructions
-To run the program, use the following command in your terminal:
+Files:
+- AT1_DiningFeature/MealBooking.js - Defines the MealBooking class with private fields, validation, calculation and booking control methods.
+- AT1_DiningFeature/DiningApp.js - Console application that runs required tests and allows interactive booking via readline/promises.
 
-```bash
-node DiningApp.js
+How to run:
+1. Ensure Node.js (v16+) is installed.
+2. From the repository root run:
+
+```
+node AT1_DiningFeature/DiningApp.js
+```
+
+Tests completed:
+- Valid booking: created a sample valid booking and displayed correct total (K30.00 for Lunch x2).
+- Invalid booking: attempted to create a booking with missing/invalid fields and confirmed validation rejects it.
+- Duplicate booking: attempted to create a booking with same student ID, date and meal type and confirmed detection.
