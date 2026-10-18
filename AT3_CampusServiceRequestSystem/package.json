@@ -1,0 +1,14 @@
+{
+  "name": "at3-campus-service-request-system",
+  "version": "1.0.0",
+  "description": "Campus Service Request Management System - Pass, Credit and Distinction",
+  "main": "src/CampusServiceApp.js",
+  "scripts": {
+    "start": "node src/CampusServiceApp.js",
+    "test": "node --test tests/*.test.js"
+  },
+  "license": "UNLICENSED",
+  "engines": {
+    "node": ">=18"
+  }
+}

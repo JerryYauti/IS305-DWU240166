@@ -1,0 +1,38 @@
+[
+  {
+    "userId": "DWU2026001",
+    "firstName": "Jerry",
+    "lastName": "Yauti",
+    "email": "jerry.yauti@dwu.ac.pg",
+    "userType": "Student",
+    "programme": "BIS",
+    "yearLevel": "2",
+    "department": "",
+    "serviceSection": "",
+    "technicalSpeciality": ""
+  },
+  {
+    "userId": "DWU2026002",
+    "firstName": "Maria",
+    "lastName": "Kaupa",
+    "email": "maria.kaupa@dwu.ac.pg",
+    "userType": "Service Officer",
+    "programme": "",
+    "yearLevel": "",
+    "department": "",
+    "serviceSection": "ICT Services",
+    "technicalSpeciality": ""
+  },
+  {
+    "userId": "TECH001",
+    "firstName": "James",
+    "lastName": "Wam",
+    "email": "james.wam@dwu.ac.pg",
+    "userType": "Technician",
+    "programme": "",
+    "yearLevel": "",
+    "department": "",
+    "serviceSection": "",
+    "technicalSpeciality": "Network Systems"
+  }
+]
